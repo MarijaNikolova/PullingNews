@@ -1,4 +1,5 @@
-import com.fasterxml.jackson.annotation.JacksonInject;
+package com.ranngo.com.pullingnews.newyorktimes;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**

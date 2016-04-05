@@ -1,7 +1,7 @@
+package com.ranngo.com.pullingnews.newyorktimes;
+
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.*;
@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by Marija on 3/30/2016.
@@ -47,7 +46,7 @@ public class NewYorkTimes {
     public static void saveTopStories(String date, ArrayList<WebUrl> urls){
 
         try {
-            File file=new File("./res/NewYorkTimes/"+date+".txt");
+            File file=new File("./res/com.ranngo.com.pullingnews.newyorktimes.NewYorkTimes/"+date+".txt");
             if(!file.exists()){
                 file.createNewFile();
             }
