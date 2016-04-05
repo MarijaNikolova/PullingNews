@@ -1,4 +1,4 @@
-package com.ranngo.com.pullingnews.newyorktimes;
+package com.ranngo.pullingnews.newyorktimes;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -46,7 +46,7 @@ public class NewYorkTimes {
     public static void saveTopStories(String date, ArrayList<WebUrl> urls){
 
         try {
-            File file=new File("./res/com.ranngo.com.pullingnews.newyorktimes.NewYorkTimes/"+date+".txt");
+            File file=new File("./res/NewYorkTimes/"+date+".txt");
             if(!file.exists()){
                 file.createNewFile();
             }
@@ -101,11 +101,10 @@ public class NewYorkTimes {
     }
 
 
-    public static void main(String[] args) {
-        System.out.println("Hello");
-
-        callForNews();
 
 
-    }
+       // callForNews();
+
+
+
 }

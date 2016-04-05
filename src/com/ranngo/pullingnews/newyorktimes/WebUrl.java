@@ -1,4 +1,4 @@
-package com.ranngo.com.pullingnews.newyorktimes;
+package com.ranngo.pullingnews.newyorktimes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
