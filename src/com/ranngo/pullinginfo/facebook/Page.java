@@ -1,11 +1,17 @@
 package com.ranngo.pullinginfo.facebook;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by Marija on 4/7/2016.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Page {
 
+    @JsonProperty("id")
     private String id;
+    @JsonProperty("name")
     private String name;
 
     public Page(){

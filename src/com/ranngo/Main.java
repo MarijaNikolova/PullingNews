@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
        // TheGuardian.callForNews();
-        NewYorkTimes.callForNews();
-        //FacebookUtillities.pullInfoForPerson("Beyonce");
+       // NewYorkTimes.callForNews();
+      //  FacebookUtillities.pullInfoForPerson("David Guetta");
     }
 }

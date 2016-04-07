@@ -14,24 +14,30 @@ public class FacebookUtillities {
     public static Person pullInfoForPerson(String query){
 
         String urlForPages=FACEBOOK_API_URL+"search/?type=page&q="+query+"&access_token="+FACEBOOK_ACCESS_TOKEN;
+        Person person = null;
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+            Data data = restTemplate.getForObject(urlForPages, Data.class);
+            System.out.println(data.toString());
 
-        RestTemplate restTemplate=new RestTemplate();
-        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        Data data=restTemplate.getForObject(urlForPages,Data.class);
-        System.out.println(data.toString());
+            Page page = null;
+            if (data.getPages().size() > 0)
+                page = data.getPages().get(0);
 
-        Page page=null;
-        if(data.getPages().size()>0)
-                page= data.getPages().get(0);
+            if (page != null) {
+                String urlForPerson = FACEBOOK_API_URL + page.getId() + "/?fields=id,about,bio,birthday,category,link,website&access_token=" + FACEBOOK_ACCESS_TOKEN;
+                person=restTemplate.getForObject(urlForPerson, Person.class);
+                System.out.println(person.toString());
 
-        if(page!=null){
-            String urlForPerson=FACEBOOK_API_URL+page.getId()+"/?fields=id,about,bio,birthday,category,link,website&access_token="+FACEBOOK_ACCESS_TOKEN;
-            Person person=restTemplate.getForObject(urlForPerson,Person.class);
-            System.out.println(person.toString());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
             return person;
         }
-        else
-            return new Person();
+
     }
 
 }
