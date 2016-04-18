@@ -81,6 +81,7 @@ public class NewYorkTimes {
         System.out.println(dates[0]+ " " +dates[1]);
         Response response=pullArticles(dates[0],dates[0],null);
         saveTopStories(dates[0],response.getDocs());
+       // saveTopStories(date,response.getDocs());
         loopAllPages(response.getMeta(),dates[0],dates[0]);
     }
 

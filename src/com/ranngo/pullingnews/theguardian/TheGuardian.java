@@ -74,12 +74,13 @@ public class TheGuardian {
         return yesterdaysDate +" "+todaysDate;
     }
 
-    public static void callForNews(){
+    public static void callForNews(String date){
         String [] dates=getDates().split(" ");
         System.out.println(dates[0]+ " " +dates[1]);
         Response response=pullArticles(dates[0],dates[0],null);
         saveTopStories(dates[0],response.getUrls());
-        loopAllPages(response.getPages(),dates[0],dates[0]);
+        //saveTopStories(date,response.getUrls());
+        loopAllPages(response.getPages(),dates[0], dates[0]);
     }
 
     public static void loopAllPages(int pages, String beginDate, String endDate){
